@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">eimnote</string>
+    <string-array name="tabs_note_name">
+        <item>所有笔记</item>
+        <item>我的笔记</item>
+        <item>分享笔记</item>
+    </string-array>
+</resources>
