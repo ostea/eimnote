@@ -2,10 +2,10 @@ package com.comtop.eimnote;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.comtop.eimnote.fragment.NoteTabFragment;
@@ -13,7 +13,7 @@ import com.comtop.eimnote.util.DensityUtil;
 import com.comtop.eimnote.widget.BadgeView;
 import com.comtop.eimnote.widget.NotePagerSlidingTabStrip;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private NotePagerSlidingTabStrip mTabs;
     private ViewPager viewPager;
@@ -76,8 +76,9 @@ public class MainActivity extends AppCompatActivity {
                                 .newInstance(NoteTabFragment.CATEGORY_SHARE);
                     }
                     return shareNoteFragment;
+                default:
+                    return null;
             }
-            return null;
         }
 
         @Override

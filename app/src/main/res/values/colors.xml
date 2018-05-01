@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
 
     <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="Transparent">#00000000</color>
+
+    <!-- V2.0图片用色规范 -->
+    <color name="color_red">#DA372A</color>
+    <color name="color_bg_gray">#F2F2F2</color>
+    <color name="color_bg_white">#ffffff</color>
+    <color name="color_line_gray">#E1E1E1</color>
+    <color name="color_image_gray">#CCCCCC</color>
+    <color name="color_image_dark_gray">#969696</color>
 
 </resources>

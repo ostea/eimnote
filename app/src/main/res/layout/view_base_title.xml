@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/layout_title_height"
+    android:background="@color/color_bg_white"
+    >
+
+    <ImageView
+        android:id="@+id/iv_title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:padding="@dimen/basic_dimen_12"
+        android:paddingLeft="@dimen/basic_dimen_12"
+        android:paddingRight="@dimen/basic_dimen_12"
+        android:scaleType="center"
+        android:src="@mipmap/iv_back_arrow"
+        />
+
+    <TextView
+        android:id="@+id/tv_title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:padding="@dimen/basic_dimen_12"
+        android:textColor="@color/color_red"
+        android:textSize="14sp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#000"
+        tools:text="笔记详情"
+        android:textSize="@dimen/text_special_big_size"
+        />
+
+    <ImageView
+        android:id="@+id/iv_title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/basic_dimen_12"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tv_title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:padding="@dimen/basic_dimen_12"
+        android:textColor="@color/color_red"
+        android:textSize="14sp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="确定"
+        />
+
+
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_line_gray"
+        />
+
+</RelativeLayout>
