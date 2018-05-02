@@ -16,11 +16,56 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+//    flavorDimensions "server"
+//
+//    productFlavors {
+//        dev {
+//            dimension "server"
+//            buildConfigField "String", "SERVER_URL", "\"http://54.255.145.79:8889/\""
+//        }
+//        qa {
+//            dimension "server"
+//            buildConfigField "String", "SERVER_URL", "\"http://54.222.248.186:7083/\""
+//        }
+//        staging {
+//            dimension "server"
+//            buildConfigField "String", "SERVER_URL", "\"http://54.222.248.186:7082/\""
+//        }
+//        prod {
+//            dimension "server"
+//            buildConfigField "String", "SERVER_URL", "\"http://52.220.34.227:7082/\""
+//        }
+//    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.0.0'
     implementation 'com.android.support:recyclerview-v7:26.0.0'
+
+    implementation 'com.google.guava:guava:20.0'
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.8.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.6'
+    implementation('com.squareup.retrofit2:retrofit:2.2.0', {
+        exclude module: 'okhttp'
+    })
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
     testImplementation 'junit:junit:4.12'
 }

@@ -73,7 +73,7 @@ public class NoteTabFragment extends BaseFragment {
     @Override
     protected void loadWhenInvisible() {
         super.loadWhenInvisible();
-        CLog.i(TAG, "loadWhenInvisible");
+        CLog.i(TAG, "c");
 
     }
 
@@ -81,7 +81,7 @@ public class NoteTabFragment extends BaseFragment {
     protected void loadWhenVisible() {
         super.loadWhenVisible();
         CLog.i(TAG, "loadWhenVisible");
-
+        showProgress();
     }
 
 }

@@ -1,5 +1,6 @@
 package com.comtop.eimnote;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,6 +16,12 @@ import com.comtop.eimnote.widget.NotePagerSlidingTabStrip;
 
 public class MainActivity extends FragmentActivity {
 
+    public static final String EXTRA_PAGE = "page";
+    public static final String EXTRA_SOURCE = "source";
+    public static final int TAB_ALL = 0;
+    public static final int TAB_MINE = 1;
+    public static final int TAB_SHARED = 2;
+
     private NotePagerSlidingTabStrip mTabs;
     private ViewPager viewPager;
 
@@ -26,6 +33,7 @@ public class MainActivity extends FragmentActivity {
     private BadgeView allBadgeView;
     private BadgeView myBadgeView;
     private BadgeView shareBadgeView;
+    private int mCurrentFragmentIndex = 0;
 
     private final String[] tabs = new String[]{"全部笔记", "我的笔记", "分享笔记"};
 
@@ -45,6 +53,35 @@ public class MainActivity extends FragmentActivity {
         createAllBadgeView();
         createmyBadgeView();
         createShareBadgeView();
+
+        mCurrentFragmentIndex = getIntent().getIntExtra(EXTRA_PAGE, 0);
+        switchFragment(mCurrentFragmentIndex);
+
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        int index = getIntent().getIntExtra(EXTRA_PAGE, -1);
+        if (index != -1) {
+            mCurrentFragmentIndex = index;
+            switchFragment(index);
+        }
+    }
+
+    private void switchFragment(int index) {
+        mCurrentFragmentIndex = index;
+        int item = viewPager.getCurrentItem();
+        if (index != mCurrentFragmentIndex) {
+            viewPager.setCurrentItem(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 
     private class NoteTabAdapter extends FragmentStatePagerAdapter {
@@ -56,21 +93,21 @@ public class MainActivity extends FragmentActivity {
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-                case 0:
+                case TAB_ALL:
                     if (allNoteFragment == null) {
                         allNoteFragment = NoteTabFragment
                                 .newInstance(NoteTabFragment.CATEGORY_ALL);
                     }
                     return allNoteFragment;
 
-                case 1:
+                case TAB_MINE:
                     if (myNoteFragment == null) {
                         myNoteFragment = NoteTabFragment
                                 .newInstance(NoteTabFragment.CATEGORY_MINE);
                     }
                     return myNoteFragment;
 
-                case 2:
+                case TAB_SHARED:
                     if (shareNoteFragment == null) {
                         shareNoteFragment = NoteTabFragment
                                 .newInstance(NoteTabFragment.CATEGORY_SHARE);
@@ -165,5 +202,6 @@ public class MainActivity extends FragmentActivity {
                 && !shareBadgeView.isShown()
                 && !myBadgeView.isShown();
     }
+
 
 }
