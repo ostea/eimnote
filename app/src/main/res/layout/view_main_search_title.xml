@@ -62,7 +62,9 @@
             android:layout_toStartOf="@id/iv_del_content"
             android:background="@color/color_bg_white"
             android:gravity="center_vertical"
+            android:singleLine="true"
             android:hint="aaa"
+            android:imeOptions="actionSearch"
             android:textColor="@color/color_bg_gray"
             android:textSize="14sp"
             />

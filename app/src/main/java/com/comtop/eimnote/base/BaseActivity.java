@@ -1,5 +1,6 @@
-package com.comtop.eimnote.activity;
+package com.comtop.eimnote.base;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
@@ -59,4 +60,17 @@ public class BaseActivity extends FragmentActivity{
             mProgressDialog.dismiss();
         }
     }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+
+        return super.onCreateDialog(id);
+    }
+
+    @Nullable
+    @Override
+    protected Dialog onCreateDialog(int id, Bundle args) {
+        return super.onCreateDialog(id, args);
+    }
+
 }

@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:fillViewport="false"
+        tools:visibility="gone"
         />
 
     <android.support.v4.view.ViewPager
@@ -25,6 +26,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        tools:visibility="gone"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         />
 
 </LinearLayout>

@@ -6,6 +6,9 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 /**
  * Author chaos
  * Description:
@@ -16,13 +19,24 @@ import android.os.Bundle;
 public class NoteApp extends Application implements Application.ActivityLifecycleCallbacks{
 
     public static int sActivityCount = 0;
+    private int foregroundCount = 0;
+
     @SuppressLint("StaticFieldLeak")
     private static Context context;
 
-    private int foregroundCount = 0;
+    public static Gson gson = new GsonBuilder()
+            .setDateFormat("yyyy-MM-dd HH:mm:ss")
+            .disableHtmlEscaping()
+            .create();
 
     public static Context getContext() {
         return context;
+    }
+
+    private static final String BASE_URL="http://eim2.szcomtop.com:6888/notes/";
+
+    public static String getBaseUrl() {
+        return BASE_URL;
     }
 
     @Override
@@ -34,15 +48,12 @@ public class NoteApp extends Application implements Application.ActivityLifecycl
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        sActivityCount++;
+
     }
 
     @Override
     public void onActivityStarted(Activity activity) {
-        if (foregroundCount == 0) {
-            // Global.setInForeground(true);
-        }
-        foregroundCount++;
+
     }
 
     @Override
@@ -57,10 +68,7 @@ public class NoteApp extends Application implements Application.ActivityLifecycl
 
     @Override
     public void onActivityStopped(Activity activity) {
-        foregroundCount--;
-        if (foregroundCount == 0) {
-            // Global.setInForeground(false);
-        }
+
     }
 
     @Override
@@ -70,6 +78,6 @@ public class NoteApp extends Application implements Application.ActivityLifecycl
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        sActivityCount--;
+
     }
 }
